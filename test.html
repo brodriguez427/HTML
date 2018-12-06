@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+        </style>
+        <script>
+            console.log("Hello World!");
+            // operations
+            console.log(2 + 2);
+            console.log("Hello " + "World");
+            console.log("Hello " + 2);
+            console.log(5 - 2);
+            // variables
+            x = 8;
+            console.log(x);
+            var y = 10;
+            console.log(10);
+
+            var j = "hello";
+            j = 3;
+            j = 1.432;
+            console.log(j);
+
+            y++;
+            console.log(y);
+
+            var bleh = "hello";
+            console.log(bleh[0]);
+            // conditionals
+            if (x > 30)
+            {
+                console.log("I'm in the conditional");
+            }
+            else if(x < 20)
+            {
+                console.log(`${x} is less than 20`);
+            }
+            else 
+            {
+                console.log("that else statement");
+            }
+
+            switch(y)
+            {
+                case 11:
+                    console.log("eleven!");
+                    break;
+                case 12:
+                    console.log("twelve!");
+                    break;
+                default:
+                    console.log("Not 11 or 12");
+            }
+
+            // functions
+            // the old way
+            function someFunction() {
+                console.log("hello from a function!");
+                return "Hello!";
+            }
+            someFunction();
+
+            // the other old way
+            anotherFunction = function () {
+                console.log("this is another function");
+            }
+
+            // new way ES6
+            newFunction = () => {
+                console.log("This is the ES 6 way!");
+            }
+
+
+            // but why tho
+            var z = 5;
+            z = () => {
+                console.log("OH man, what happened to z?");
+            }
+            z();
+
+            // function with parameters
+            addTogether = (x, y) => {
+                console.log(x + y);
+            }
+            addTogether(10, 12);
+            addTogether(x, y); // remember these were 8 and 11
+
+            x = "apple";
+            y = "banana";
+            addTogether(x, y);
+            
+            // function with parameters that are functions
+            runMe = (h) => {
+                h();
+            }
+
+            // runMe in the old style
+            function runMe2 (h) {
+                h();
+            }
+
+
+            // loops
+            // arrays
+            // classes/objects
+
+            copyToDiv = () => {
+                var text = document.getElementById("stuff").value
+                document.getElementById("otherStuff").innerHTML = text;
+            }
+        </script>
+    </head>
+    <body>
+        <button onClick="copyToDiv()">Click me!</button>
+        <input type="text" id="stuff" />
+        <div id="otherStuff">Hi!</div>
+    </body>
+</html>
+

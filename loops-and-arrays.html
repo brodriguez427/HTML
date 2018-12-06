@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <script>
+            makeDivs = () => {
+                var x = 0;
+                while (x < 10)
+                {
+                    document.getElementById("anything").innerHTML += `<div id="${x}">Hi again!</div>`;
+                    x++;
+                }
+
+                for(i = 0; i < 10; i++)
+                {
+                    document.getElementById("anything").innerHTML += "<div>Hi from the for loop!</div>";
+                }
+
+                someArray = [1, 2, 3, 4, 5, 6];
+
+                // loop over the locations in the array
+                for(i = 0; i < someArray.length; i++)
+                {
+                    document.getElementById("anything").innerHTML += `<div>${someArray[i]}</div>`;
+                }
+
+                // arrays in this style still set the location in j (not the value)
+                for(j in someArray)
+                {
+                    document.getElementById("anything").innerHTML += `<div>${someArray[j]}</div>`;
+                }
+
+                someObject = {};
+                someObject.john = "Hi";
+                someObject.jean = "Hello";
+
+                // objects will give their property values to y in this, not the location like in arrays
+                for(y in someObject)
+                {
+                    document.getElementById("anything").innerHTML += `<div>${y}</div>`;
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <div id="anything">
+            <div>Hi there!</div>
+        </div>
+        <div>
+            <p>Another line of text</p>
+        </div>
+        <button onClick="makeDivs()">Press me</button>
+    </body>
+</html>

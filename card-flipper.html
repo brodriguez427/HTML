@@ -1,0 +1,84 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <style>
+        .deal{
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .hand div {
+            display: inline-block;
+            font-size: 200px;
+        }
+        .card {
+            font-size: 200px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        var front = new Array ();
+        front[0] = "🃟";
+        front[1] = "🂱";
+        front[2] = "🂲";
+        front[3] = "🂳";
+        front[4] = "🂴";
+        front[5] = "🂵";
+        front[6] = "🂶";
+        front[7] = "🂷";
+        front[8] = "🂸";
+        front[9] = "🂹";
+        front[10] = "🂺";
+        front[11] = "🂻";
+        front[12] = "🂽";
+        front[13] = "🂾";
+
+        var back = "🂠";
+        var flippedId = [3, 5, 6, 0, 11, 1, 1, 12]
+        x = 0;
+        var myHand = [];
+
+        deal = () => {
+            for (i = 0; i < 8; i++)
+            {
+                document.getElementById("hand").innerHTML += `<div class=card id="${i}" onClick="flip(${i})">${back}</div>`;
+            }
+        }
+
+        flip = (cardId) => {
+            document.getElementById(cardId).innerHTML = front[flippedId[x]];
+            temp = '';
+            temp = cardId;
+
+            for (j = 0; j < myHand.length; j++)
+            {
+                if (front[flippedId[x]] === document.getElementById(myHand[j]).innerHTML)
+                {
+                    console.log("match!");
+                    document.getElementById(cardId).innerHTML = "match!";
+                    document.getElementById(myHand[j]).innerHTML = "match!";
+                }
+            }
+            myHand.push(temp);
+            console.log(myHand);
+            x++;
+        }
+
+    </script>
+</head>
+
+    <body>
+        <button onClick="deal()" class="deal" id="deal">DEAL!</button><br>
+        <div class="hand" id="hand">
+        </div>
+    </body>
+
+</html>

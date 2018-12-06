@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculator</title>
+        <style>
+            body{
+            background-color: black;
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+            .num{
+            height: 100px;
+            width: 100px;
+            color: purple;
+            font-size: 25px;
+            border: 6px outset orange;
+            padding: 0px;
+            margin: 0px;
+            background-blend-mode: screen;
+            background: linear-gradient(rgba(0, 0, 0, 0.9)(.8, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://media.treehugger.com/assets/images/2017/10/pumpkin-monster.jpg.662x0_q70_crop-scale.jpg");
+            background-size: 100px 100px;
+            }
+            #calcDisplay{
+                height: 60px;
+                width: 500px;
+                background-color: purple;
+                margin: 0px;
+                padding: 0px;
+            }
+            .clr{
+                height: 100px;
+                width: 100px;
+                color: purple;
+                padding: 0px;
+                font-size: 25px;
+                margin: 0px;
+                border: 6px outset orange;
+                background-image: url("http://ddydc3qiky-flywheel.netdna-ssl.com/wp-content/uploads/2016/10/black-cat.jpg");
+                background-size: 100px 100px;
+                background-blend-mode: darken;
+            }
+            .op{
+                height: 100px;
+                width: 100px;
+                color: purple;
+                padding: 0px;
+                border: 6px outset orange;
+                font-size: 25px;
+                margin: 0px;
+                background-size: 100px 100px;
+                background-blend-mode: darken;
+                background-image: url("http://static5.businessinsider.com/image/59f246673e9d251c008b5d0e/heres-what-candy-corn-is-actually-made-of--it-may-surprise-you.jpg");
+            }
+
+
+        </style>
+
+
+ <script>
+//Caculation Fun
+
+            //empty array to store operations
+            var entries = [];
+            //starting total
+            var total = 0;
+            //empty temp variable to store number
+            var temp = '';
+
+
+    	//Get Value From Button Pressed
+    	getInfo = function(button){
+    		//tests
+    		console.log("Button Click!");
+
+            var value = button.value;
+            document.getElementById("calcDisplay").innerHTML += value;
+            console.log("Button Value: " + value);
+
+
+            //If this is a number, add to temp.
+            if(!isNaN(value)){
+             	//add value to temp holder
+             	temp += value;
+             }
+             //If this is a + or - push number from temp into
+             //entries. Push operator in seperately. Clear temp for
+             //next integer
+            else if(value === '+' || value == '-'){
+             	//console.log("!!Addition Sign Hit!!");
+             	entries.push(temp);
+             	temp = '';
+             	entries.push(value);
+             }
+             //If Equal is Hit. Push in number from temp
+             //into entries.
+            else if (value === '='){
+
+             	//console.log("!!Equal Sign Hit!");
+
+             	//if the equal sign is clicked
+             	//push the temp integer into entries
+             	entries.push(temp);
+
+             	//Number is a javascript function
+             	//that checks if parameter is a number
+             	//if it is not it returns
+             	//NaN(Not a Number).
+             	var total = Number(entries[0]);
+
+             	//lets loop through the entries
+             	for(var i = 1; i < entries.length; i++){
+
+             		//set variable for next integer
+             		var nextNum = Number(entries[i+1]);
+
+             		//set current integer in loop
+             		var currentVar = entries[i];
+
+             		//if the current integer is a +, add the total
+             		//and next integers together.
+             		if(currentVar === '+'){
+             			total += nextNum;
+             		}
+             		//if the current integer is a -, subtract the current
+             		//and next integers together.
+             		else if(currentVar === '-'){
+             			total -= nextNum;
+             		}
+
+             		i++
+             	} //end for loop
+
+             //Grab the calcDisplay and display the total.
+             document.getElementById("calcDisplay").innerHTML = total;
+             //clear the entries array
+             entries = [];
+             }// end equal sign
+
+             	// Just to Check Things
+             	// console.log("Temp Value: " + temp);
+             	// console.log("Numbers Entered: " + entries);
+             	// console.log("total:" + total);
+            else if(value === 'c'){
+                document.getElementById("calcDisplay").innerHTML = ' ';
+                entries = [];
+                temp = '';
+                total = '';
+            }
+    	}
+
+    </script>
+    </head>
+    <body>
+            <p id="calcDisplay"></p>
+            <br>
+            <button onClick="getInfo(this)" value="1" class="num"><h5>1</h5></button>
+            <button onClick="getInfo(this)" value="2" class="num"><h5>2</h5></button>
+            <button onClick="getInfo(this)" value="3" class="num"><h5>3</h5></button>
+            <button onClick="getInfo(this)" value="+" class="op"><h5>+</h5></button>
+            <br>
+            <button onClick="getInfo(this)" value="4" class="num"><h5>4</h5></button>
+            <button onClick="getInfo(this)" value="5" class="num"><h5>5</h5></button>
+            <button onClick="getInfo(this)" value="6" class="num"><h5>6</h5></button>
+            <button onClick="getInfo(this)" value="-" class="op"><h5>-</h5></button>
+            <button onClick="getInfo(this)" value="c" class="clr"><h5>c</h5></button>
+            <br>
+            <button onClick="getInfo(this)" value="7" class="num"><h5>7</h5></button>
+            <button onClick="getInfo(this)" value="8" class="num"><h5>8</h5></button>
+            <button onClick="getInfo(this)" value="9" class="num"><h5>9</h5></button>
+            <button onClick="getInfo(this)" value="0" class="num"><h5>0</h5></button>
+            <button onClick="getInfo(this)" value="=" class="op"><h5>=</h5></button>
+
+    </body>
+
+    </html>

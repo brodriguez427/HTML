@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///users/belindarodriguez/Projects/HTML/text-convo.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Calculator</title>
+
+        <style>
+            body{
+                background-color: white;
+                width: 350px;
+            }
+            p {
+            position: relative;
+            background: #73AD21;
+            padding: 12px; 
+            width: 200px;
+            height: relative;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 18px;
+            border-radius:20px;
+            width: 400px;    
+            }
+            .sent {
+            position: relative;
+	        background: #0076FF;
+            color: white;
+            margin: 5.5px;
+            align-items: right;
+            width: 200px;
+            float: right;
+            clear: left;
+            }
+            .sent:after {
+            content: '';
+	        position: absolute;
+	        bottom: 10px;
+	        left: 95%;
+	        border: 20px solid transparent;
+	        border-top-color: #0076FF;
+	        border-bottom: 0;
+	        border-right: 0;
+	        margin-left: -10px;
+	        margin-bottom: -20px;
+            transform: rotate(-30deg);
+            }
+            .received {
+            position: relative;
+	        background: lightgray;
+            margin: 5.5px;
+            width: 200px;
+            float: left;
+            clear: right;
+            }
+            .received:after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 5%;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-top-color: lightgray;
+            border-bottom: 0;
+            border-left: 0;
+            margin-left: -10px;
+            margin-bottom: -20px;
+            transform: rotate(30deg);
+            }
+            .input {
+                height: 22px;
+                font-size: 18px;
+                width: 300px;
+                margin: 5.5px;
+                border-radius: 90%;
+            }
+            .send {
+                border-radius: 50%;
+                border: none;
+                font-size: 14px;
+                color: white;
+                background: #0076FF;
+                padding: 1px;
+                padding-left: 8px;
+                padding-right: 8px;
+                display: inline-block;
+                margin: 2px 2px;
+                font-family: Helvetica;
+                font-weight: lighter;
+                text-align: center;
+   
+            }
+
+        </style>
+
+        <script>
+        </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./Calculator_files/w3.css"></head>
+
+    
+    
+
+    <body>
+            <p class="sent">Kinda tempting this year with the iTunes festival...</p>
+            <p class="received">Meh. That would end up being an expensive festival</p>
+            <p class="sent">Why? Hotel costs?</p>
+            <p class="received">Yes. Everything</p>
+            <input type="text" class="input">
+            <button class="send">↑</button>
+            
+
+    
+
+
+</body></html>
